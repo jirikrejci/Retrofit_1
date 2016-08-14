@@ -2,13 +2,14 @@ package com.example.jirka.retrofit1;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.telecom.Call;
-import android.view.SurfaceHolder;
-import android.widget.TextView;
+import android.util.Log;
 
-import retrofit.RestAdapter;
-import retrofit.http.GET;
-import retrofit.http.Query;
+import com.example.jirka.retrofit1.Adapters.GetWeatherRestAdapter;
+import com.example.jirka.retrofit1.JSON.WeatherData;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,48 +19,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TestWeatherData test = new TestWeatherData();
+        test.runRetrofitTestAsync();
     }
 
 
-    public interface GetWeatherApi {
-        @GET ("/data/2.5/weather")
-        void getWeatherFromApiAsync (
-                @Query("q") String cityName,
-                Callback <WeatherData> callback
-        );
-        @GET ("data/2.5/weather")
-        WeatherData getWeatherFromApiSync (
-                @Query("q") String cityName
-        );
-    }
+    /**
+     * Created by jirikrejci on 14.08.16.
+     */
+    public class TestWeatherData {
+        GetWeatherRestAdapter mGetWeatherRestAdapter;
+        Callback<WeatherData> mWeatherDataCallback = new Callback<WeatherData>() {
+            @Override
+            public void success(WeatherData weatherData, Response response) {
+                Log.d("JK", "Success: weatherData: base: " + weatherData.getName() +
+                        " cod: " + weatherData.getCod());
+            }
 
-    public class GetWeatherRestAdapter {
-        protected final String TAG = getClass().getSimpleName();
-        protected RestAdapter mRestAdapter;
-        protected GetWeatherApi mApi;
-        static final String WEATHER_URL = "http://api.openweathermap.org";
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("JK", "Failure: err:" + error);
+            }
+        };
 
-        public GetWeatherRestAdapter () {   // constructor
-            mRestAdapter = new RestAdapter.Builder()        // vytvoření Adapter builderu
-                    .setLogLevel(RestAdapter.LogLevel.FULL) // nastavování configuration items
-                    .setEndpoint(WEATHER_URL)
-                    .build();   // bild adaptéru            // build
-            mApi = mRestAdapter.create(GetWeatherApi.class);  // vytvoření API, abychom se k adaptéru dostali
+
+        public void runRetrofitTestAsync() {
+            if (mGetWeatherRestAdapter == null)
+                mGetWeatherRestAdapter = new GetWeatherRestAdapter();
+            mGetWeatherRestAdapter.testWeatherApiAsync("HorniPocernice", "f51c090018cb53eaa363389cb68e5bdf", mWeatherDataCallback);
         }
 
-        // Deklarace API uvnitř adaptéru:
 
-        public void testWeatherApiAsync (String city, Callback<WeatherData> cb) {
-            //Asynchronous call. Pass result back via 'Callback - cb'
-            mApi.getWeatherFromApiAsync(city, cb);
-        }
+    };
 
-        public WeatherData testWeatherApiSync (String city) {
-            // Synchronous call. Do not call in UI thread
-            return mApi.getWeatherFromApiSync(city);
-        }
 
-    }
 
 
 }
