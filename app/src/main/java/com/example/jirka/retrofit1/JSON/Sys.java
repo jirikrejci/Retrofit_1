@@ -6,6 +6,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.util.Date;
+
 @Generated("org.jsonschema2pojo")
 public class Sys {
 
@@ -23,10 +25,10 @@ public class Sys {
     private String country;
     @SerializedName("sunrise")
     @Expose
-    private Integer sunrise;
+    private Long sunrise;
     @SerializedName("sunset")
     @Expose
-    private Integer sunset;
+    private Long sunset;
 
     /**
      * 
@@ -125,7 +127,7 @@ public class Sys {
      * @return
      *     The sunrise
      */
-    public Integer getSunrise() {
+    public Long getSunrise() {
         return sunrise;
     }
 
@@ -134,11 +136,11 @@ public class Sys {
      * @param sunrise
      *     The sunrise
      */
-    public void setSunrise(Integer sunrise) {
+    public void setSunrise(Long sunrise) {
         this.sunrise = sunrise;
     }
 
-    public Sys withSunrise(Integer sunrise) {
+    public Sys withSunrise(Long sunrise) {
         this.sunrise = sunrise;
         return this;
     }
@@ -148,7 +150,7 @@ public class Sys {
      * @return
      *     The sunset
      */
-    public Integer getSunset() {
+    public Long getSunset() {
         return sunset;
     }
 
@@ -157,11 +159,11 @@ public class Sys {
      * @param sunset
      *     The sunset
      */
-    public void setSunset(Integer sunset) {
+    public void setSunset(Long sunset) {
         this.sunset = sunset;
     }
 
-    public Sys withSunset(Integer sunset) {
+    public Sys withSunset(Long sunset) {
         this.sunset = sunset;
         return this;
     }

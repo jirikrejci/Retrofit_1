@@ -1,6 +1,7 @@
 package com.example.jirka.retrofit1.Adapters;
 
 import com.example.jirka.retrofit1.JSON.WeatherData;
+import com.example.jirka.retrofit1.JSON.WeatherData_0;
 import com.example.jirka.retrofit1.Queries.WeatherApi;
 
 import retrofit.Callback;

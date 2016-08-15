@@ -1,9 +1,9 @@
 package com.example.jirka.retrofit1.Queries;
 
+import com.example.jirka.retrofit1.JSON.Weather;
 import com.example.jirka.retrofit1.JSON.WeatherData;
 
 import retrofit.Callback;
-import retrofit.http.Field;
 import retrofit.http.GET;
 import retrofit.http.Query;
 

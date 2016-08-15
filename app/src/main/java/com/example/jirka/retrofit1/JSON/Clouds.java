@@ -6,6 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 @Generated("org.jsonschema2pojo")
 public class Clouds {
@@ -39,7 +40,7 @@ public class Clouds {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

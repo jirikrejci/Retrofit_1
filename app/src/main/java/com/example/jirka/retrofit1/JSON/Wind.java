@@ -1,7 +1,6 @@
 
 package com.example.jirka.retrofit1.JSON;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -14,7 +13,7 @@ public class Wind {
     private Double speed;
     @SerializedName("deg")
     @Expose
-    private Integer deg;
+    private Double deg;
     @SerializedName("gust")
     @Expose
     private Double gust;
@@ -47,7 +46,7 @@ public class Wind {
      * @return
      *     The deg
      */
-    public Integer getDeg() {
+    public Double getDeg() {
         return deg;
     }
 
@@ -56,11 +55,11 @@ public class Wind {
      * @param deg
      *     The deg
      */
-    public void setDeg(Integer deg) {
+    public void setDeg(Double deg) {
         this.deg = deg;
     }
 
-    public Wind withDeg(Integer deg) {
+    public Wind withDeg(Double deg) {
         this.deg = deg;
         return this;
     }
