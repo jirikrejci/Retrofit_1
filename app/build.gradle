@@ -23,8 +23,14 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
+
+    // Retrofit + GSON
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.google.code.gson:gson:2.4'
+    // JSON code generovaný http://www.jsonschema2pojo.org/
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
+
 }
 
 

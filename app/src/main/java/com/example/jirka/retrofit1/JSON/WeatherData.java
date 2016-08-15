@@ -3,15 +3,13 @@ package com.example.jirka.retrofit1.JSON;
 /**
  * Created by jirikrejci on 14.08.16.
  */
+
+
 public class WeatherData {
     private int cod;
     private String name;
-    private weather.main;
 
 
-    public String getWeatherMain() {
-        return weather.main;
-    }
 
     public void setWeatherMain(String weatherMain) {
         this.weatherMain = weatherMain;
