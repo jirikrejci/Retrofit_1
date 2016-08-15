@@ -9,6 +9,8 @@ import com.example.jirka.retrofit1.Adapters.GetWeatherRestAdapter;
 import com.example.jirka.retrofit1.JSON.Weather;
 import com.example.jirka.retrofit1.JSON.WeatherData;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import retrofit.Callback;
@@ -58,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
                         + weatherData.getWeather().get(0).getMain()
                         + weatherData.getWeather().get(0).getDescription());
 
-
+                Log.d ("JK Dates", "dt: " + (new Time(weatherData.getDt())).toString());
+                Log.d ("JK Dates", "sunrise: " + (new Time(weatherData.getSys().getSunrise() * 1000L) ).toString());
+                Log.d ("JK Dates", "sunset: " + (new Time(weatherData.getSys().getSunset() * 1000L)).toString());
 
 
             }
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         public void runRetrofitTestAsync() {
             if (mGetWeatherRestAdapter == null)
                 mGetWeatherRestAdapter = new GetWeatherRestAdapter();
-            mGetWeatherRestAdapter.testWeatherApiAsync("HorniPocernice", "f51c090018cb53eaa363389cb68e5bdf", mWeatherDataCallback);
+            mGetWeatherRestAdapter.testWeatherApiAsync("City od London, GB", "f51c090018cb53eaa363389cb68e5bdf", mWeatherDataCallback);
         }
 
 
