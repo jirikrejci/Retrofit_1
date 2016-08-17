@@ -38,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
     public class TestWeatherData {
         GetWeatherRestAdapter mGetWeatherRestAdapter;
 
-        //definice Callback
-        Callback<WeatherData> mWeatherDataCallback = new Callback<WeatherData>() {
+
+        //implementace Retrofit Callback - definován v Retrofitu
+         Callback<WeatherData> mWeatherDataCallback = new Callback<WeatherData>() {
             String outputString = "";
 
             @Override
