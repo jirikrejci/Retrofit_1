@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Retrofit1.iml" filepath="$PROJECT_DIR$/Retrofit1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Retrofit_1.iml" filepath="$PROJECT_DIR$/Retrofit_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/restnetworking/restnetworking.iml" filepath="$PROJECT_DIR$/restnetworking/restnetworking.iml" />
     </modules>
   </component>
 </project>
