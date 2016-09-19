@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Retrofit_1.iml" filepath="$PROJECT_DIR$/Retrofit_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Retrofit1.iml" filepath="$PROJECT_DIR$/Retrofit1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myjavalib/myjavalib.iml" filepath="$PROJECT_DIR$/myjavalib/myjavalib.iml" />
     </modules>
   </component>
 </project>

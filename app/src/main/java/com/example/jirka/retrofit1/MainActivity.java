@@ -10,7 +10,6 @@ import com.example.jirka.retrofit1.JSON.Weather;
 import com.example.jirka.retrofit1.JSON.WeatherData;
 
 import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 import retrofit.Callback;
@@ -38,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public class TestWeatherData {
         GetWeatherRestAdapter mGetWeatherRestAdapter;
-        Callback<WeatherData> mWeatherDataCallback = new Callback<WeatherData>() {
+
+
+        //implementace Retrofit Callback - definován v Retrofitu
+         Callback<WeatherData> mWeatherDataCallback = new Callback<WeatherData>() {
             String outputString = "";
 
             @Override
