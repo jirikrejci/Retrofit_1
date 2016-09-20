@@ -9,6 +9,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -46,7 +48,7 @@ public class SdriveMethods {
         return agentIdResponse;
    }
 
-    public static String getAgentIdResponseCall () {
+    public static String getAgentIdResponseBodyCall() {
         // Intercepting
 
         String outputStr = null;
@@ -59,6 +61,7 @@ public class SdriveMethods {
                 .baseUrl("http://myskodadev.azurewebsites.net")
                 .client(client)
                 .build();
+
 
         SdriveService sdriveService = retrofit.create(SdriveService.class);
 
@@ -73,6 +76,26 @@ public class SdriveMethods {
         }
 
         return outputStr;
+    }
+
+    public static void getAgentId_async () {
+
+        SdriveService sdriveService = SdriveService.retrofit.create(SdriveService.class);
+        Call<AgentIdResponse> call = sdriveService.getAgentId();
+        call.enqueue(new Callback<AgentIdResponse>() {
+            AgentIdResponse agentIdResponse;
+            @Override
+            public void onResponse (Call<AgentIdResponse> call, Response<AgentIdResponse> response) {
+                System.out.println("AgentId: " + response.body().getAgentID());
+                agentIdResponse = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<AgentIdResponse> call, Throwable t) {
+                System.out.println(t.toString());
+            }
+        });
+
     }
 
 }
