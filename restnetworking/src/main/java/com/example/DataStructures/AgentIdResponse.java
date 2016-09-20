@@ -13,8 +13,4 @@ public class AgentIdResponse {
     public void setAgentID(String agentID) {
         this.agentID = agentID;
     }
-
-
-
-
 }
