@@ -27,6 +27,9 @@ dependencies {
     // Retrofit + GSON
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+
+
     // JSON code generovaný http://www.jsonschema2pojo.org/
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     compile group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
